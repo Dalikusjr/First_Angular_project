@@ -1,0 +1,5 @@
+<div class="contenu">
+<label>Nom du film</label> <input #nom><br>
+<label>Description du film</label> <textarea #desc rows="4" cols="40"></textarea><br>
+<button (click)="ajouter(nom.value,desc.value)" class="btnInfo">Ajouter</button>
+</div>

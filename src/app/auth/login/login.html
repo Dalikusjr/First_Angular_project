@@ -1,0 +1,28 @@
+<h1>Connexion</h1>
+
+<form #loginForm="ngForm" (ngSubmit)="connexion(loginForm)">
+  <div>
+    <label for="login">Login</label><br>
+    <input
+      type="text"
+      id="login"
+      name="login"
+      required
+      [(ngModel)]="login"
+    >
+  </div>
+
+  <div>
+    <label for="password">Mot de passe</label><br>
+    <input
+      type="password"
+      id="mdp"
+      name="mdp"
+      required
+      [(ngModel)]="mdp"
+    >
+  </div>
+
+  <button type="submit" [disabled]="loginForm.invalid">Connexion</button>
+</form>
+

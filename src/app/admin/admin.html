@@ -1,0 +1,8 @@
+<h1>Bienvenue Administrateur</h1>
+<nav>
+  <a routerLink="lister-films" routerLinkActive="active">Lister Films</a>&nbsp;
+  <a routerLink="ajouter-film" routerLinkActive="active">Ajouter Film</a>
+  <a routerLink="../visiteur" class="droite" routerLinkActive="active">Voir Visiteur</a>
+  <button (click)="logout()" class="droite btn-logout">Déconnexion</button>
+</nav>
+<router-outlet></router-outlet>

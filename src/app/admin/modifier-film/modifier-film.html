@@ -1,0 +1,11 @@
+<H1>Modification d'un film</H1>
+<form (ngSubmit)="soumettre(f)" #f="ngForm">
+  <div class="contenu">
+    <label>Nom du film</label>
+    <input [(ngModel)]="nomFilm" type="text" name="nom" #nom ngModel required /><br />
+    <div [hidden]="nomFilm" class="alert alert-danger">Nom du film est obligatoire</div>
+    <label>Description du film</label>
+    <textarea [(ngModel)]="descFilm" name="desc" #desc rows="4" cols="40" ngModel></textarea><br />
+    <button type="submit" [disabled]="f.invalid" class="btnInfo">Modifier</button>
+  </div>
+</form>

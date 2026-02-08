@@ -1,0 +1,19 @@
+import { Component } from '@angular/core';
+import { FILMS } from '../../shared/models/des-films';
+import { Film } from '../../shared/models/film';
+
+@Component({
+  selector: 'app-home-visiteur',
+  standalone: false,
+  templateUrl: './home-visiteur.html',
+  styleUrl: './home-visiteur.css',
+})
+export class HomeVisiteur {
+  tabFilms: Film[] = FILMS;
+  constructor(){}
+  ngOnInit():void{}
+
+  toggle(i:number){
+    this.tabFilms[i].descVisible = !this.tabFilms[i].descVisible;
+  }
+}

@@ -1,0 +1,15 @@
+.btnDanger {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 1px;
+  cursor: pointer;
+}
+a{
+  margin-left: 10px;
+}

@@ -1,0 +1,8 @@
+@for (film of tabFilms; track film; let i = $index) {
+  <h4>{{ film.nom }}</h4>
+  <div>
+    <a [routerLink]="['/admin/modifier', film.id]">Modifier</a>
+    <button (click)="supprimer($index)" class="btnDanger">Supprimer</button>
+    <a [routerLink]="['/admin/details', film.id]">Détails</a>
+  </div>
+}

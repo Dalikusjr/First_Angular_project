@@ -1,0 +1,70 @@
+/* Container du formulaire */
+form {
+  width: 300px;
+  margin: 50px auto;
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Titres */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+/* Focus sur input */
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Bouton */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* bleu */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+/* Hover sur bouton */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Message d’erreur éventuel */
+.error {
+  color: #dc3545;
+  font-size: 13px;
+  margin-bottom: 10px;
+}

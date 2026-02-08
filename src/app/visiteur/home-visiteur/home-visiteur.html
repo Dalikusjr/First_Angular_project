@@ -1,0 +1,9 @@
+@for(film of tabFilms;track film;let i=$index){
+<h4>{{ film.nom }}</h4>
+@if(film.descVisible){
+<app-detail-film [desc]="film.description"></app-detail-film>
+}
+<button (click)="toggle(i)" class="btnInfo">
+  {{ film.descVisible ? "Moin d'infos" : "Plus d'infos" }}
+</button>
+}
