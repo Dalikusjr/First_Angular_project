@@ -1,59 +1,203 @@
-# Films
+# 🎬 Films — Angular Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
+<p align="center">
+  <img src="https://img.shields.io/badge/Angular-20-red" />
+  <img src="https://img.shields.io/badge/TypeScript-5-blue" />
+  <img src="https://img.shields.io/badge/Status-Learning%20Project-success" />
+  <img src="https://img.shields.io/badge/License-MIT-green" />
+</p>
 
-## Development server
+<p align="center">
+  Application Angular moderne pour la <strong>gestion et la consultation de films</strong>,
+  avec authentification, protection des routes et architecture modulaire.
+</p>
 
-To start a local development server, run:
+---
+
+## 📚 Sommaire
+
+- [Présentation](#-présentation)
+- [Fonctionnalités](#-fonctionnalités)
+- [Technologies](#-technologies)
+- [Architecture](#-architecture)
+- [Arborescence](#-arborescence)
+- [Installation](#-installation)
+- [Utilisation](#-utilisation)
+- [Scripts](#-scripts)
+- [Tests](#-tests)
+- [Build](#-build)
+- [Auteur](#-auteur)
+- [Licence](#-licence)
+
+---
+
+## 📖 Présentation
+
+**Films** est une application web développée avec **Angular 20** permettant :
+- La consultation publique des films.
+- La gestion complète des films via un espace administrateur.
+- La sécurisation des routes grâce aux **Guards**.
+
+Le projet applique les **bonnes pratiques Angular** : modules, routing par module, services, séparation des responsabilités.
+
+---
+
+## ✨ Fonctionnalités
+
+### 👤 Visiteur
+- Accueil
+- Liste des films
+- Détails d’un film
+- Page À propos
+
+### 🔐 Authentification
+- Connexion utilisateur
+- Protection des routes (`AuthGuard`)
+
+### 🛠️ Administrateur
+- Ajouter un film
+- Modifier un film
+- Supprimer un film
+- Lister les films
+
+### ❌ Erreurs
+- Page 404 personnalisée
+
+---
+
+## 🧰 Technologies
+
+- **Angular 20**
+- **TypeScript**
+- **HTML5 / CSS3**
+- Angular Router
+- Services Angular
+- Guards
+- Architecture modulaire
+
+---
+
+## 🧩 Architecture
+
+
+AppModule
+│
+├── VisiteurModule → accès public (consultation)
+├── AuthModule     → authentification & sécurité
+├── AdminModule    → gestion des films (CRUD)
+├── Services       → logique métier
+└── Shared         → modèles partagés
+Cette architecture modulaire permet :
+
+- Une meilleure maintenabilité.
+- Une séparation claire des responsabilités.
+- Une évolutivité simplifiée du projet.
+
+---
+
+## 📂 Arborescence
+```
+src/app
+├── admin                    # Espace administrateur
+│   ├── ajouter-film
+│   ├── modifier-film
+│   ├── lister-films
+│   ├── details-film
+│   ├── admin.ts
+│   ├── admin-module.ts
+│   └── admin-routing-module.ts
+│
+├── auth                     # Authentification
+│   ├── login
+│   ├── auth.ts
+│   ├── auth-guard.ts
+│   ├── auth-module.ts
+│   └── auth-routing-module.ts
+│
+├── visiteur                 # Espace public
+│   ├── home-visiteur
+│   ├── detail-film
+│   ├── apropos
+│   ├── visiteur.ts
+│   ├── visiteur-module.ts
+│   └── visiteur-routing-module.ts
+│
+├── services                 # Services métier
+│   └── films.ts
+│
+├── shared                   # Modèles partagés
+│   └── models
+│
+├── notfound                 # Page 404
+│   └── notfound.ts
+│
+├── app-routing-module.ts
+└── app-module.ts
+```
+---
+
+## ⚙️ Installation
+
+### Prérequis
+- **Node.js** ≥ 18
+- **Angular CLI** ≥ 20
+
+### Installation
+```bash
+git clone [https://github.com/votre-nom/films-angular.git](https://github.com/votre-nom/films-angular.git)
+cd films-angular
+npm install
+```
+---
+
+## ▶️ Utilisation
+
+Démarrer le serveur de développement :
 
 ```bash
 ng serve
 ```
+Accéder à l’application via l'URL : [http://localhost:4200](http://localhost:4200)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 📜 Scripts
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+| Commande | Description |
+| :--- | :--- |
+| `ng serve` | Lancer le serveur de développement |
+| `ng build` | Compiler le projet pour la production |
+| `ng test` | Lancer les tests unitaires |
+| `ng e2e` | Lancer les tests de bout en bout |
+| `ng generate component nom` | Créer un nouveau composant |
+
+---
+
+## 🧪 Tests
 
 ```bash
-ng generate component component-name
+ng test
+ng e2e
 ```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## 🏗️ Build
 
 ```bash
 ng build
 ```
+Les fichiers de production seront générés dans le dossier `dist/`.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 👨‍💻 Auteur
 
-```bash
-ng test
-```
+**Mohamed Ali Bettaieb** – Étudiant en Informatique
+*Projet académique Angular*
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 📄 Licence
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Ce projet est sous licence **MIT**. Libre d’utilisation, de modification et de distribution.
