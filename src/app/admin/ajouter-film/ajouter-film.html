@@ -1,5 +1,34 @@
-<div class="contenu">
-<label>Nom du film</label> <input #nom><br>
-<label>Description du film</label> <textarea #desc rows="4" cols="40"></textarea><br>
-<button (click)="ajouter(nom.value,desc.value)" class="btnInfo">Ajouter</button>
+<div class="form-container">
+  <h2 class="form-title">Ajouter un nouveau film</h2>
+
+  <form class="film-form">
+    <div class="form-group">
+      <label for="nomFilm" class="form-label">Nom du film</label>
+      <input
+        type="text"
+        id="nomFilm"
+        #nom
+        class="form-input"
+        placeholder="Entrez le titre du film"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="descFilm" class="form-label">Description du film</label>
+      <textarea
+        id="descFilm"
+        #desc
+        rows="5"
+        class="form-textarea"
+        placeholder="Décrivez l'intrigue, les personnages..."
+      ></textarea>
+    </div>
+
+    <button
+      (click)="ajouter(nom.value, desc.value)"
+      class="submit-btn"
+    >
+      Ajouter le film
+    </button>
+  </form>
 </div>

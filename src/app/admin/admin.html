@@ -1,8 +1,27 @@
-<h1>Bienvenue Administrateur</h1>
-<nav>
-  <a routerLink="lister-films" routerLinkActive="active">Lister Films</a>&nbsp;
-  <a routerLink="ajouter-film" routerLinkActive="active">Ajouter Film</a>
-  <a routerLink="../visiteur" class="droite" routerLinkActive="active">Voir Visiteur</a>
-  <button (click)="logout()" class="droite btn-logout">Déconnexion</button>
-</nav>
-<router-outlet></router-outlet>
+<div class="admin-container">
+  <h1 class="admin-title">Bienvenue Administrateur</h1>
+
+  <nav class="admin-nav">
+    <div class="nav-links">
+      <a routerLink="lister-films" routerLinkActive="active" class="nav-link">
+        Lister Films
+      </a>
+      <a routerLink="ajouter-film" routerLinkActive="active" class="nav-link">
+        Ajouter Film
+      </a>
+    </div>
+
+    <div class="nav-actions">
+      <a routerLink="../visiteur" routerLinkActive="active" class="nav-link visitor-link">
+        Voir Visiteur
+      </a>
+      <button (click)="logout()" class="logout-btn">
+        Déconnexion
+      </button>
+    </div>
+  </nav>
+
+  <div class="admin-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

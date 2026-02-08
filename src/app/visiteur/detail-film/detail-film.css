@@ -1,0 +1,30 @@
+/* detail-film.component.css */
+.film-description {
+  padding: 1rem 0;
+  line-height: 1.6;
+}
+
+.description-text {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* Animation douce pour l'apparition */
+:host {
+  display: block;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

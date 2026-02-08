@@ -1,8 +1,57 @@
-@for (film of tabFilms; track film; let i = $index) {
-  <h4>{{ film.nom }}</h4>
-  <div>
-    <a [routerLink]="['/admin/modifier', film.id]">Modifier</a>
-    <button (click)="supprimer($index)" class="btnDanger">Supprimer</button>
-    <a [routerLink]="['/admin/details', film.id]">Détails</a>
+<div class="films-admin-container">
+  <h2 class="page-title">Gestion des films</h2>
+  <p class="page-subtitle">{{ tabFilms.length }} film(s) dans la bibliothèque</p>
+
+  <div class="films-grid">
+    @for (film of tabFilms; track film; let i = $index) {
+      <article class="film-card">
+        <div class="film-card-header">
+          <h3 class="film-title">{{ film.nom }}</h3>
+          <span class="film-id">ID: {{ film.id }}</span>
+        </div>
+
+        <div class="film-card-actions">
+          <a
+            [routerLink]="['/admin/modifier', film.id]"
+            class="action-link edit-link"
+          >
+            <svg class="action-icon" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
+            </svg>
+            Modifier
+          </a>
+
+          <button
+            (click)="supprimer($index)"
+            class="action-btn danger-btn"
+          >
+            <svg class="action-icon" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"/>
+            </svg>
+            Supprimer
+          </button>
+
+          <a
+            [routerLink]="['/admin/details', film.id]"
+            class="action-link details-link"
+          >
+            <svg class="action-icon" viewBox="0 0 24 24" width="16" height="16">
+              <path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+            </svg>
+            Détails
+          </a>
+        </div>
+      </article>
+    }
+
+    @empty {
+      <div class="empty-state">
+        <svg class="empty-icon" viewBox="0 0 24 24" width="48" height="48">
+          <path fill="#95a5a6" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+        </svg>
+        <p class="empty-text">Aucun film à afficher</p>
+        <a routerLink="/admin/ajouter" class="add-film-link">Ajouter un film</a>
+      </div>
+    }
   </div>
-}
+</div>

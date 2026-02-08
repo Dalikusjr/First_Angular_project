@@ -1,21 +1,140 @@
-nav {
-  background-color: #f8f8f8;
+/* === DESIGN MINIMALISTE ET PROFESSIONNEL === */
+
+.admin-container {
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Titre épuré */
+.admin-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 2.5rem 0 1rem;
+  text-align: center;
+  color: #111827;
+  letter-spacing: -0.025em;
+}
+
+/* Navigation sobre */
+.admin-nav {
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+  padding: 0 2rem;
   display: flex;
-  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-nav a {
+/* Groupes de liens */
+.nav-links,
+.nav-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Liens minimalistes */
+.nav-link {
+  padding: 0.75rem 1.5rem;
+  background: #f9fafb;
+  color: #374151;
   text-decoration: none;
-  padding: 5px;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border: 1px solid #e5e7eb;
 }
 
-.active {
-  background-color: blue;
+.nav-link:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  color: #111827;
+}
+
+/* État actif discret */
+.nav-link.active {
+  background: #1f2937;
   color: white;
-  border-radius: 5px;
+  border-color: #1f2937;
 }
 
-.droite {
-  margin-left: auto;
+/* Bouton déconnexion sobre */
+.logout-btn {
+  padding: 0.75rem 1.5rem;
+  background: white;
+  color: #dc2626;
+  border: 1px solid #dc2626;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
 }
 
+.logout-btn:hover {
+  background: #dc2626;
+  color: white;
+}
+
+/* Lien visiteur */
+.visitor-link {
+  background: #f0fdf4;
+  color: #059669;
+  border-color: #86efac;
+}
+
+.visitor-link:hover {
+  background: #dcfce7;
+  color: #047857;
+}
+
+.visitor-link.active {
+  background: #059669;
+  color: white;
+  border-color: #059669;
+}
+
+/* Contenu principal */
+.admin-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-nav {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 1rem;
+  }
+
+  .nav-links,
+  .nav-actions {
+    justify-content: center;
+  }
+
+  .admin-title {
+    font-size: 1.8rem;
+    padding: 2rem 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link,
+  .logout-btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .nav-links,
+  .nav-actions {
+    gap: 0.5rem;
+  }
+}

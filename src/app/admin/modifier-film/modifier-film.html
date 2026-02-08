@@ -1,11 +1,74 @@
-<H1>Modification d'un film</H1>
-<form (ngSubmit)="soumettre(f)" #f="ngForm">
-  <div class="contenu">
-    <label>Nom du film</label>
-    <input [(ngModel)]="nomFilm" type="text" name="nom" #nom ngModel required /><br />
-    <div [hidden]="nomFilm" class="alert alert-danger">Nom du film est obligatoire</div>
-    <label>Description du film</label>
-    <textarea [(ngModel)]="descFilm" name="desc" #desc rows="4" cols="40" ngModel></textarea><br />
-    <button type="submit" [disabled]="f.invalid" class="btnInfo">Modifier</button>
-  </div>
-</form>
+<div class="edit-form-container">
+  <header class="form-header">
+    <h1 class="form-title">Modification d'un film</h1>
+    <p class="form-subtitle">Mettez à jour les informations du film</p>
+  </header>
+
+  <form (ngSubmit)="soumettre(f)" #f="ngForm" class="edit-form">
+    <div class="form-group">
+      <label for="nomFilm" class="form-label">
+        <span class="label-text">Nom du film</span>
+        <span class="required-indicator">*</span>
+      </label>
+      <input
+        type="text"
+        id="nomFilm"
+        [(ngModel)]="nomFilm"
+        name="nom"
+        #nom="ngModel"
+        ngModel
+        required
+        class="form-input"
+        placeholder="Entrez le nouveau titre du film"
+        [class.input-error]="nom.invalid && nom.touched"
+      />
+      <div *ngIf="nom.invalid && nom.touched" class="error-message">
+        <svg class="error-icon" viewBox="0 0 24 24" width="16" height="16">
+          <path fill="currentColor" d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+        </svg>
+        Le nom du film est obligatoire
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="descFilm" class="form-label">
+        <span class="label-text">Description du film</span>
+      </label>
+      <textarea
+        id="descFilm"
+        [(ngModel)]="descFilm"
+        name="desc"
+        #desc="ngModel"
+        ngModel
+        rows="6"
+        class="form-textarea"
+        placeholder="Décrivez l'intrigue, les personnages, le genre..."
+        [class.input-error]="desc.invalid && desc.touched"
+      ></textarea>
+      <div *ngIf="desc.invalid && desc.touched" class="error-message">
+        Une description est recommandée
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button
+        type="submit"
+        [disabled]="f.invalid"
+        class="submit-btn"
+        [class.btn-disabled]="f.invalid"
+      >
+        <svg class="btn-icon" viewBox="0 0 24 24" width="18" height="18">
+          <path fill="currentColor" d="M17 3H5C3.89 3 3 3.9 3 5V19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V7L17 3ZM12 19C10.34 19 9 17.66 9 16C9 14.34 10.34 13 12 13C13.66 13 15 14.34 15 16C15 17.66 13.66 19 12 19ZM15 9H5V5H15V9Z"/>
+        </svg>
+        Enregistrer les modifications
+      </button>
+
+      <a
+        routerLink="../lister-films"
+        class="cancel-link"
+      >
+        Annuler
+      </a>
+    </div>
+  </form>
+</div>

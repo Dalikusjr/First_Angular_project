@@ -1,9 +1,33 @@
-@for(film of tabFilms;track film;let i=$index){
-<h4>{{ film.nom }}</h4>
-@if(film.descVisible){
-<app-detail-film [desc]="film.description"></app-detail-film>
-}
-<button (click)="toggle(i)" class="btnInfo">
-  {{ film.descVisible ? "Moin d'infos" : "Plus d'infos" }}
-</button>
-}
+<div class="films-container">
+  @for(film of tabFilms; track film; let i = $index) {
+    <article class="film-card">
+      <!-- En-tête de la carte -->
+      <div class="film-card-header">
+        <h3 class="film-title">{{ film.nom }}</h3>
+      </div>
+
+      <!-- Corps de la carte (détails conditionnels) -->
+      @if(film.descVisible) {
+        <div class="film-card-body">
+          <app-detail-film [desc]="film.description"></app-detail-film>
+        </div>
+      }
+
+      <!-- Bouton d'action -->
+      <div class="film-card-footer">
+        <button
+          (click)="toggle(i)"
+          class="btnInfo"
+          [attr.aria-expanded]="film.descVisible"
+        >
+          <span class="btn-label">
+            {{ film.descVisible ? "Réduire" : "Plus d'infos" }}
+          </span>
+          <span class="btn-icon">
+            {{ film.descVisible ? "−" : "+" }}
+          </span>
+        </button>
+      </div>
+    </article>
+  }
+</div>

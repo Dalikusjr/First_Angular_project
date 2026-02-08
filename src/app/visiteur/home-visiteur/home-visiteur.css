@@ -1,12 +1,96 @@
+/* Conteneur principal */
+.films-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Carte individuelle */
+.film-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eaeaea;
+}
+
+.film-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* En-tête de la carte */
+.film-card-header {
+  padding: 1.25rem 1.5rem 0.75rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.film-title {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Corps de la carte */
+.film-card-body {
+  padding: 1.25rem 1.5rem;
+  flex-grow: 1;
+  background-color: #f9f9f9;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Pied de la carte */
+.film-card-footer {
+  padding: 1rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+/* Bouton amélioré */
 .btnInfo {
-  background-color: #008cba;
+  background: linear-gradient(135deg, #3498db, #2980b9);
   border: none;
   color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  margin: 2px 1px;
+  padding: 0.85rem 1.8rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 140px;
+  box-shadow: 0 3px 8px rgba(52, 152, 219, 0.2);
+}
+
+.btnInfo:hover {
+  background: linear-gradient(135deg, #2980b9, #1f639e);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(52, 152, 219, 0.3);
+}
+
+.btnInfo:active {
+  transform: translateY(0);
+}
+
+.btnInfo[aria-expanded="true"] {
+  background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+}
+
+.btnIcon {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.btn-label {
+  letter-spacing: 0.3px;
 }

@@ -1,28 +1,40 @@
-<h1>Connexion</h1>
+<div class="form-container">
+  <h1>Connexion</h1>
 
-<form #loginForm="ngForm" (ngSubmit)="connexion(loginForm)">
-  <div>
-    <label for="login">Login</label><br>
-    <input
-      type="text"
-      id="login"
-      name="login"
-      required
-      [(ngModel)]="login"
+  <form #loginForm="ngForm" (ngSubmit)="connexion(loginForm)" class="modern-form">
+    <div class="form-group">
+      <label for="login" class="input-label">Login</label>
+      <input
+        type="text"
+        id="login"
+        name="login"
+        required
+        [(ngModel)]="login"
+        class="modern-input"
+        placeholder="Votre identifiant"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="password" class="input-label">Mot de passe</label>
+      <input
+        type="password"
+        id="mdp"
+        name="mdp"
+        required
+        [(ngModel)]="mdp"
+        class="modern-input"
+        placeholder="Votre mot de passe"
+      >
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="loginForm.invalid"
+      class="modern-button"
+      [class.button-disabled]="loginForm.invalid"
     >
-  </div>
-
-  <div>
-    <label for="password">Mot de passe</label><br>
-    <input
-      type="password"
-      id="mdp"
-      name="mdp"
-      required
-      [(ngModel)]="mdp"
-    >
-  </div>
-
-  <button type="submit" [disabled]="loginForm.invalid">Connexion</button>
-</form>
-
+      Connexion
+    </button>
+  </form>
+</div>

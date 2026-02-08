@@ -1,7 +1,22 @@
-<h1>Bienvenue Visiteur</h1>
-<nav>
-  <a routerLink="home-visiteur" routerLinkActive="active">Accueil</a>
-  <a routerLink="apropos" routerLinkActive="active">A propos</a>
-  <a routerLink="../admin" class="droite">Voir Admin</a>
-</nav>
-<router-outlet></router-outlet>
+<header class="header">
+  <h1 class="site-title">Bienvenue Visiteur</h1>
+
+  <nav class="main-nav">
+    <div class="nav-links">
+      <a routerLink="home-visiteur" routerLinkActive="active" class="nav-link">
+        Accueil
+      </a>
+      <a routerLink="apropos" routerLinkActive="active" class="nav-link">
+        À propos
+      </a>
+    </div>
+
+    <a routerLink="../admin" class="nav-link admin-link">
+      Voir Admin
+    </a>
+  </nav>
+</header>
+
+<main class="content">
+  <router-outlet></router-outlet>
+</main>
