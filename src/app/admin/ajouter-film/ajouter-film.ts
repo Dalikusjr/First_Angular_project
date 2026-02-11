@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Films } from '../../services/films';
+import { Router } from '@angular/router';
+import { Bd } from '../../services/bd';
+
 
 
 @Component({
@@ -9,9 +11,14 @@ import { Films } from '../../services/films';
   styleUrl: './ajouter-film.css',
 })
 export class AjouterFilm {
-  constructor(private films : Films){}
+  film:any;
+  constructor(private bd:Bd,private router:Router){}
   ajouter(nom:string,desc:string){
-    this.films.ajouter(nom,desc);
-    alert("Votre film est ajouté");
+    this.film={
+      nom:nom,
+      description:desc,
+      descVisible:false
+    }
+    this.bd.addFilm(this.film).then(()=>{alert("Film ajouté avec succès ✅");this.router.navigate(['/admin'])}).catch(()=>{alert("Erreur lors de l'ajout ❌");})
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FILMS } from '../../shared/models/des-films';
 import { Film } from '../../shared/models/film';
+import { Bd } from '../../services/bd';
 
 @Component({
   selector: 'app-home-visiteur',
@@ -9,10 +10,14 @@ import { Film } from '../../shared/models/film';
   styleUrl: './home-visiteur.css',
 })
 export class HomeVisiteur {
-  tabFilms: Film[] = FILMS;
-  constructor(){}
-  ngOnInit():void{}
-
+  tabFilms : any;
+  constructor(private bd:Bd){}
+  ngOnInit(): void {
+    this.recupererFilms();
+  }
+  recupererFilms(){
+    this.bd.getFilms().subscribe(data=>{this.tabFilms=data;});
+  }
   toggle(i:number){
     this.tabFilms[i].descVisible = !this.tabFilms[i].descVisible;
   }

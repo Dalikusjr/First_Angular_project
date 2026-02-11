@@ -1,7 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Films } from '../../services/films';
-import { Film } from '../../shared/models/film';
+import { Bd } from '../../services/bd';
+
 
 @Component({
   selector: 'app-details-film',
@@ -10,12 +10,14 @@ import { Film } from '../../shared/models/film';
   styleUrl: './details-film.css',
 })
 export class DetailsFilm implements OnInit{
-  constructor(private route: ActivatedRoute,private films: Films) { }
+  constructor(private route: ActivatedRoute,private bd:Bd) { }
   nomFilm?:string="Affiche le nom du film";
   descFilm?:string="Affiche la description du film";
     ngOnInit() {
 const id = this.route.snapshot.params['id'];
-this.nomFilm = this.films.getFilmParId(+id)?.nom;
-this.descFilm =this.films.getFilmParId(+id)?.description;
+this.bd.getFilm(id).subscribe(res=>{
+this.nomFilm = res.nom;
+this.descFilm =res.description;
+})
 }
 }

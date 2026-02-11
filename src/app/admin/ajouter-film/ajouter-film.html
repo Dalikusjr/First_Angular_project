@@ -1,23 +1,35 @@
 <div class="form-container">
   <h2 class="form-title">Ajouter un nouveau film</h2>
 
-  <form class="film-form">
+  <form class="film-form" (ngSubmit)="ajouter(nom.value, desc.value)" #f="ngForm">
+
+    <!-- Nom du film (REQUIS) -->
     <div class="form-group">
       <label for="nomFilm" class="form-label">Nom du film</label>
       <input
         type="text"
         id="nomFilm"
-        #nom
+        name="nomFilm"
+        #nom="ngModel"
+        ngModel
+        required
         class="form-input"
         placeholder="Entrez le titre du film"
       >
+      <!-- Message d'erreur si vide -->
+      <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="error">
+        Le nom du film est obligatoire.
+      </div>
     </div>
 
+    <!-- Description (optionnelle) -->
     <div class="form-group">
       <label for="descFilm" class="form-label">Description du film</label>
       <textarea
         id="descFilm"
-        #desc
+        name="descFilm"
+        #desc="ngModel"
+        ngModel
         rows="5"
         class="form-textarea"
         placeholder="Décrivez l'intrigue, les personnages..."
@@ -25,10 +37,13 @@
     </div>
 
     <button
-      (click)="ajouter(nom.value, desc.value)"
+      type="submit"
+      [disabled]="f.invalid"
       class="submit-btn"
+      [class.btn-disabled]="f.invalid"
     >
       Ajouter le film
     </button>
+
   </form>
 </div>

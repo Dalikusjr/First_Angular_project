@@ -22,7 +22,7 @@
           </a>
 
           <button
-            (click)="supprimer($index)"
+            (click)="supprimer(film.id)"
             class="action-btn danger-btn"
           >
             <svg class="action-icon" viewBox="0 0 24 24" width="16" height="16">
@@ -50,7 +50,7 @@
           <path fill="#95a5a6" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
         </svg>
         <p class="empty-text">Aucun film à afficher</p>
-        <a routerLink="/admin/ajouter" class="add-film-link">Ajouter un film</a>
+        <a routerLink="/admin/ajouter-film" class="add-film-link">Ajouter un film</a>
       </div>
     }
   </div>

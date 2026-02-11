@@ -118,3 +118,33 @@
     align-self: stretch;
   }
 }
+submit-btn:hover:not(.btn-disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.submit-btn:active:not(.btn-disabled) {
+  transform: translateY(0);
+}
+
+.submit-btn.btn-disabled {
+  background: linear-gradient(135deg, #bdc3c7, #95a5a6);
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn-icon {
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:hover:not(.btn-disabled) .btn-icon {
+  transform: scale(1.1);
+}
+.error {
+  color: #d93025;       /* rouge Google style erreur */
+  font-size: 0.875rem;  /* un peu plus petit que le texte normal */
+  margin-top: 4px;      /* petit espace sous le champ */
+  font-style: italic;    /* italique pour distinguer le message */
+}

@@ -74,6 +74,7 @@ Le projet applique les **bonnes pratiques Angular** : modules, routing par modul
 - Services Angular
 - Guards
 - Architecture modulaire
+- FireStore
 
 ---
 
@@ -190,6 +191,33 @@ Les fichiers de production seront générés dans le dossier `dist/`.
 
 ---
 
+## Configuration Firebase personnelle pour le test
+
+Pour tester l'application, vous devez créer votre propre projet Firebase et obtenir les **configs Firestore**. Voici comment faire :
+
+### 1️⃣ Créer un projet Firebase
+
+1. Rendez-vous sur [https://console.firebase.google.com/](https://console.firebase.google.com/)  
+2. Cliquez sur **Ajouter un projet** et suivez les étapes.  
+3. Activez **Firestore** et **Authentication (si besoin)** dans votre projet.
+
+### 2️⃣ Obtenir la configuration du projet
+
+1. Dans votre projet Firebase, allez dans **Paramètres > Général > Vos applications > Web App**.  
+2. Copiez l’objet de configuration, qui ressemble à ceci :
+
+```ts
+export const firebaseConfig = {
+  apiKey: "VOTRE_API_KEY",
+  authDomain: "votre-projet.firebaseapp.com",
+  projectId: "votre-projet",
+  storageBucket: "votre-projet.appspot.com",
+  messagingSenderId: "VOTRE_SENDER_ID",
+  appId: "VOTRE_APP_ID"
+};
+
+```
+3. Coller dans src/environments/environment.ts
 
 ## 👨‍💻 Auteur
 
